@@ -15,18 +15,18 @@ export default {
         preserveModulesRoot: 'src',  // Keep module structure relative to 'src'
     },
     plugins: [
-        copy({
-            targets: [
-                {src: 'src/*.css', dest: 'public/assets/css'},
-                {src: 'src/*.js', dest: 'public/assets/js'}
-            ]
-        }),
         typescript({
             tsconfig: './tsconfig.json'
         }),
         nodeResolve({
             extensions: ['.js', '.ts']
-        }), // This plugin allows Rollup to resolve modules from node_modules
-        commonjs() // Converts CommonJS modules to ES modules
+        }), 
+        commonjs(),
+        copy({
+            targets: [
+                {src: 'src/*.css', dest: 'public/assets/css'},
+                {src: 'src/*.js', dest: 'public/assets/js'}
+            ]
+        })
     ]
 }

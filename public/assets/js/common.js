@@ -13,22 +13,61 @@ function initCommon() {
     }
   }
 
-  // Mobile nav toggle
-  const mobileNavShow = document.querySelector('.mobile-nav-show');
-  const mobileNavHide = document.querySelector('.mobile-nav-hide');
+  /**
+   * Mobile nav toggle
+   */
+  function mobileNavToggle() {
+    console.log('[BOU DEBUG] Toggling mobile nav. Body active before:', document.body.classList.contains('mobile-nav-active'));
+    document.body.classList.toggle('mobile-nav-active');
+    const mobileNavShow = document.querySelector('.mobile-nav-show');
+    const mobileNavHide = document.querySelector('.mobile-nav-hide');
+    mobileNavShow?.classList.toggle('d-none');
+    mobileNavHide?.classList.toggle('d-none');
+    console.log('[BOU DEBUG] Body active after:', document.body.classList.contains('mobile-nav-active'));
+  }
 
-  document.querySelectorAll('.mobile-nav-toggle').forEach(el => {
-    el.addEventListener('click', function (event) {
-      event.preventDefault();
-      mobileNavToogle();
+  document.addEventListener('click', (e) => {
+    const target = e.target;
+    if (target instanceof HTMLElement && target.closest('.mobile-nav-toggle')) {
+      console.log('[BOU DEBUG] Mobile toggle clicked!', target);
+      e.preventDefault();
+      mobileNavToggle();
+    }
+  });
+
+  /**
+   * Hide mobile nav on same-page/hash links
+   */
+  document.querySelectorAll('#navbar a').forEach(navbarlink => {
+    if (!navbarlink.getAttribute('href')) return;
+
+    navbarlink.addEventListener('click', () => {
+      if (document.body.classList.contains('mobile-nav-active')) {
+        mobileNavToggle();
+      }
     });
   });
 
-  function mobileNavToogle() {
-    document.body.classList.toggle('mobile-nav-active');
-    mobileNavShow?.classList.toggle('d-none');
-    mobileNavHide?.classList.toggle('d-none');
-  }
+  /**
+   * Toggle mobile nav dropdowns
+   */
+  const navDropdowns = document.querySelectorAll('.navbar .dropdown > a');
+  navDropdowns.forEach(el => {
+    el.addEventListener('click', function(event) {
+      const self = this;
+      if (self instanceof HTMLElement && document.body.classList.contains('mobile-nav-active')) {
+        event.preventDefault();
+        self.classList.toggle('active');
+        self.nextElementSibling?.classList.toggle('dropdown-active');
+
+        let dropDownIndicator = self.querySelector('.dropdown-indicator');
+        if (dropDownIndicator) {
+          dropDownIndicator.classList.toggle('bi-chevron-up');
+          dropDownIndicator.classList.toggle('bi-chevron-down');
+        }
+      }
+    });
+  });
 
   // Active link state
   const pathname = window.location.pathname;

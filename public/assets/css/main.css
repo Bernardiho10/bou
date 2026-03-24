@@ -1896,7 +1896,7 @@ section {
 
 @media (max-width: 768px) {
   .hero .info {
-    padding: 0 50px;
+    padding: 0 30px;
   }
 }
 
@@ -1930,7 +1930,7 @@ section {
 
 .hero .info p {
   color: rgba(255, 255, 255, 0.8);
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .hero .info .btn-get-started {
