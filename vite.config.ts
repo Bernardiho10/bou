@@ -21,6 +21,7 @@ export default defineConfig({
         education: resolve(__dirname, 'public/education.html'),
         'real-estate': resolve(__dirname, 'public/real-estate.html'),
         technology: resolve(__dirname, 'public/technology.html'),
+        contact: resolve(__dirname, 'public/contact.html'),
       }
     }
   },

@@ -31,8 +31,15 @@ function initCommon() {
   }
 
   // Active link state
-  let currentPath = window.location.pathname.split('/').pop() || 'index.html';
+  const pathname = window.location.pathname;
+  let currentPath = pathname.split('/').pop() || 'index.html';
   if (currentPath === '') currentPath = 'index.html';
+
+  // Normalize currentPath (remove extension for comparison if needed)
+  const normalizedCurrent = currentPath.replace('.html', '');
+
+  console.log('[BOU DEBUG] pathname:', pathname);
+  console.log('[BOU DEBUG] currentPath:', currentPath);
 
   const pageTitles = {
     'index.html': 'Home',
@@ -52,17 +59,18 @@ function initCommon() {
   }
 
   document.querySelectorAll('#navbar ul li a').forEach(link => {
-    const href = link.getAttribute('href');
-    
-    // Remove active class to ensure clean state
+    const href = link.getAttribute('href') || '';
+    const normalizedHref = href.replace('.html', '').replace('./', '');
+
     link.classList.remove('active');
-    
-    if (href === currentPath) {
+
+
+    if (normalizedHref === normalizedCurrent) {
       link.classList.add('active');
     }
 
     // Hide Home link on index page
-    if (href === 'index.html' && currentPath === 'index.html') {
+    if (normalizedHref === 'index' && normalizedCurrent === 'index') {
       if (link.parentElement) {
         link.parentElement.style.display = 'none';
       }
