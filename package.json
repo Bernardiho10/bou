@@ -4,9 +4,9 @@
 	  "description": "A HAM Application",
 	  "type": "module",
 	  "scripts": {
-	  	  "dev": "concurrently \"ham build -w\" \"vite\"",
-	  	  "build": "ham build && rollup -c",
-	  	  "build-all": "npm run build && vite build",
+	  	  "dev": "concurrently \"ham build\" \"rollup -c -w\" \"vite\"",
+	  	  "build": "ham build && rollup -c && vite build",
+	  	  "build-all": "npm run build",
 	  	  "test": "echo \"Error: no test specified\" && exit 1"
 	  },
 	  "devDependencies": {
@@ -22,5 +22,8 @@
 	  	  "ts-node": "^10.9.2",
 	  	  "typescript": "^6.0.2",
 	  	  "vite": "^8.0.2"
+	  },
+	  "dependencies": {
+	  	  "aos": "^2.3.4"
 	  }
 }

@@ -24,7 +24,9 @@ export default {
         typescript({
             tsconfig: './tsconfig.json'
         }),
-        nodeResolve(), // This plugin allows Rollup to resolve modules from node_modules
+        nodeResolve({
+            extensions: ['.js', '.ts']
+        }), // This plugin allows Rollup to resolve modules from node_modules
         commonjs() // Converts CommonJS modules to ES modules
     ]
 }

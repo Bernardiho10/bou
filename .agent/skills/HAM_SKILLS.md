@@ -29,7 +29,14 @@ Individual pages that provide content to a layout. They must declare their confi
 Reusable HTML fragments. Included using `<embed type="ham/partial" src="path/to/partial.html"/>`.
 - Path is relative to the current file.
 
-### 4. Resource Auto-linking
+### 4. Dynamic Content & Conditionals (`data-ham-replace`)
+HAM does **not** natively support Go templates or expressions like `{{ if }}`. Instead, it relies on static string replacement using the `data-ham-replace` attribute.
+- Format: `data-ham-replace="key:value,another_key:"`
+- Matching tokens formatted as `__key__` in the embedded file are swapped with the `value`. 
+- **Example for active states**: To set an active class, the partial can contain `<li class="__active__">`. The embed tag passes `data-ham-replace="active:active"`.
+- **Example for conditionals**: The official test-site implements hiding/showing by replacing comment tokens: `data-ham-replace="comment_start:<!--,comment_end:-->"`. The partial contains `__comment_start__ <div>Hidden</div> __comment_end__`.
+
+### 5. Resource Auto-linking
 The HAM compiler automatically detects resources:
 - A `.css` file with the same name as the `.html` page is auto-linked.
 - A `.ts` file with the same name as the `.html` page is auto-linked as `<script type="module" src="...js">`.

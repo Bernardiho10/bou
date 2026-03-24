@@ -1,11 +1,5 @@
-import AOS from 'aos';
+// Auto-generated TypeScript file for HAM module
+import { initCommon } from './common';
 
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('Education Page Loaded');
-    AOS.init({
-        duration: 1000,
-        easing: 'ease-in-out',
-        once: true,
-        mirror: false
-    });
-});
+// Initialize all template features (AOS, Mobile Nav, etc.)
+initCommon();
