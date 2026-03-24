@@ -1,5 +1,5 @@
 // @ts-ignore
-const AOS_GLOBAL = typeof AOS !== 'undefined' ? AOS : window.AOS;
+const AOS_GLOBAL = typeof AOS !== 'undefined' ? AOS : window['AOS'];
 
 function initCommon() {
   // Preloader
@@ -55,7 +55,7 @@ function initCommon() {
    */
   const navDropdowns = document.querySelectorAll('.navbar .dropdown > a');
   navDropdowns.forEach(el => {
-    el.addEventListener('click', function(event) {
+    el.addEventListener('click', function (event) {
       const self = this;
       // Use .classList check instead of instanceof for Rollup compatibility
       // @ts-ignore
