@@ -127,10 +127,12 @@ section {
 }
 
 .breadcrumbs h2 {
-  font-size: 56px;
+  font-size: 50px;
   font-weight: 500;
   color: #fff;
   font-family: var(--font-secondary);
+  text-align: center;
+  padding: 100px 0;
 }
 
 .breadcrumbs ol {
@@ -265,7 +267,7 @@ section {
 }
 
 .header .logo img {
-  max-height: 100px;
+  max-height: 150px;
   margin-right: 6px;
 }
 
