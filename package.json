@@ -4,15 +4,23 @@
 	  "description": "A HAM Application",
 	  "type": "module",
 	  "scripts": {
-		"build": "ham build && rollup -c",
-		"test": "echo \"Error: no test specified\" && exit 1"
+	  	  "dev": "concurrently \"ham build -w\" \"vite\"",
+	  	  "build": "ham build && rollup -c",
+	  	  "build-all": "npm run build && vite build",
+	  	  "test": "echo \"Error: no test specified\" && exit 1"
 	  },
 	  "devDependencies": {
-		"@rollup/plugin-node-resolve": "^15.2.3",
-		"rollup": "3.17.3",
-		"rollup-plugin-copy": "3.4.0",
-		"rollup-plugin-typescript2": "^0.36.0",
-		"@rollup/plugin-commonjs": "^26.0.1",
-		"glob": "^11.0.0"
+	  	  "@rollup/plugin-commonjs": "^26.0.1",
+	  	  "@rollup/plugin-node-resolve": "^15.2.3",
+	  	  "@types/aos": "^3.0.7",
+	  	  "@types/node": "^25.5.0",
+	  	  "concurrently": "^9.2.1",
+	  	  "glob": "^11.0.0",
+	  	  "rollup": "3.17.3",
+	  	  "rollup-plugin-copy": "3.4.0",
+	  	  "rollup-plugin-typescript2": "^0.36.0",
+	  	  "ts-node": "^10.9.2",
+	  	  "typescript": "^6.0.2",
+	  	  "vite": "^8.0.2"
 	  }
 }
