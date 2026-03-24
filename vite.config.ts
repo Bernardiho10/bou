@@ -3,14 +3,12 @@ import { resolve } from 'path';
 
 export default defineConfig({
   root: 'public',
-  publicDir: false, // Assets are already in public/assets, no need to copy
+  publicDir: false, // Assets are handled manually via xcopy in package.json
   server: {
     port: 3000,
   },
-  resolve: {
-  },
   build: {
-    outDir: '../dist', // Change back to dist to avoid root conflict, user can set Vercel to build/dist
+    outDir: '../dist',
     emptyOutDir: true,
     rollupOptions: {
       input: {

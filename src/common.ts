@@ -1,7 +1,12 @@
 // @ts-ignore
-const AOS_GLOBAL = typeof AOS !== 'undefined' ? AOS : window['AOS'];
+const AOS_GLOBAL = window['AOS'] || (typeof AOS !== 'undefined' ? AOS : undefined);
+
+let isInitialized = false;
 
 export function initCommon() {
+  if (isInitialized) return;
+  isInitialized = true;
+
   // Preloader
   const preloader = document.querySelector('#preloader');
   if (preloader) {

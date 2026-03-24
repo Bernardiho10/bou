@@ -6,7 +6,7 @@
     "scripts": {
         "ham:build": "ham build && rimraf public/components",
         "dev": "concurrently \"nodemon --watch src -e html,lhtml,css,ts --exec \\\"npm run ham:build\\\"\" \"rollup -c -w\" \"vite\"",
-        "build": "npm run ham:build && rollup -c && vite build",
+        "build": "npm run ham:build && rollup -c && vite build && xcopy /E /I /Y public\\assets dist\\assets",
         "build-all": "npm run build",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
@@ -27,6 +27,7 @@
         "vite": "^8.0.2"
     },
     "dependencies": {
+        "@vercel/analytics": "^2.0.1",
         "aos": "^2.3.4"
     }
 }

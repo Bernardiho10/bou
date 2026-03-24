@@ -1,0 +1,12 @@
+/* Agriculture Page Styles */
+.about .about-img {
+    min-height: 400px;
+    background-size: cover;
+    background-position: center;
+}
+
+.our-story h3 {
+    color: #2d6a4f; /* Greenish for agriculture */
+    font-size: 32px;
+    font-weight: 700;
+}
