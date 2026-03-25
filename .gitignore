@@ -1,2 +1,7 @@
 node_modules
 .agent
+.env
+build_log.txt
+build_err.txt
+inject_button.js
+fix-assets.js

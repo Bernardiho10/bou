@@ -7,12 +7,29 @@
     <section id="hero-solution" class="about d-flex align-items-center" style="padding-top: 60px;">
       <div class="container" data-aos="fade-up">
         <div class="row position-relative">
-          <div class="col-lg-7 about-img" style="background-image: url(/assets/img/constructions-2.jpg); min-height: 450px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);"></div>
-          <div class="col-lg-7">
-            <div class="our-story" style="background: rgba(255,255,255,0.9); padding: 50px; border-radius: 10px; margin-top: -80px; position: relative; z-index: 2; border-left: 5px solid #5cb85c;">
+          <div class="col-lg-10" style="margin: 0 auto;">
+            <div id="carousel-agritech" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000"
+              style="min-height: 450px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); overflow: hidden;">
+              <div class="carousel-inner" style="height: 100%;">
+                <div class="carousel-item active"
+                  style="background-image: url(/assets/img/constructions-2.jpg); height: 450px; background-size: cover; background-position: center; transition: transform 5s ease, filter 1s;">
+                </div>
+                <div class="carousel-item"
+                  style="background-image: url(/assets/img/constructions-2.jpg); height: 450px; background-size: cover; background-position: left center; transform: scale(1.05); filter: contrast(1.15);">
+                </div>
+                <div class="carousel-item"
+                  style="background-image: url(/assets/img/constructions-2.jpg); height: 450px; background-size: cover; background-position: right bottom; transform: scale(1.02); filter: brightness(1.1);">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-10" style="margin: 0 auto;">
+            <div class="our-story"
+              style="background: rgba(255,255,255,0.9); padding: 50px; border-radius: 10px; margin-top: -80px; position: relative; z-index: 2; border-left: 5px solid #5cb85c;">
               <h4>Sustainable Future</h4>
               <h3>AgriTech Solutions</h3>
-              <p>Empowering agriculture through precision technology, smart irrigation, and supply chain transparency. We are making Africa the food basket of the world through engineering excellence.</p>
+              <p>Empowering agriculture through precision technology, smart irrigation, and supply chain transparency.
+                We are making Africa the food basket of the world through engineering excellence.</p>
               <ul>
                 <li><i class="bi bi-check-circle"></i> <span>Smart Farm Monitoring</span></li>
                 <li><i class="bi bi-check-circle"></i> <span>Supply Chain Traceability</span></li>
@@ -105,9 +122,56 @@
       </div>
     </section>
 
-    <!-- ======= Contact Section ======= -->
-    <embed type="ham/partial" src="components/get_started.html" />
   </div>
+  <!-- ======= Get Started Section ======= -->
+  <section id="get-started" class="get-started section-bg">
+    <div class="container">
 
+      <div class="row justify-content-between gy-4">
+
+        <div class="col-lg-6 d-flex align-items-center flex-column" data-aos="fade-up">
+          <div class="content">
+            <h1>Ready to transform your business with cutting-edge software and hardware? <br> Request a custom quote
+              today and let's engineer your future together.</h1>
+          </div>
+        </div>
+
+        <div class="col-lg-5" data-aos="fade">
+          <form action="forms/quote.php" method="post" class="php-email-form">
+            <h3>Get a quote</h3>
+            <div class="row gy-3">
+
+              <div class="col-md-12">
+                <input type="text" name="name" class="form-control" placeholder="Name" required>
+              </div>
+
+              <div class="col-md-12 ">
+                <input type="email" class="form-control" name="email" placeholder="Email" required>
+              </div>
+
+              <div class="col-md-12">
+                <input type="text" class="form-control" name="phone" placeholder="Phone" required>
+              </div>
+
+              <div class="col-md-12">
+                <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
+              </div>
+
+              <div class="col-md-12 text-center">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your quote request has been sent successfully. Thank you!</div>
+
+                <button type="submit">Get a quote</button>
+              </div>
+
+            </div>
+          </form>
+        </div><!-- End Quote Form -->
+
+      </div>
+
+    </div>
+  </section><!-- End Get Started Section -->
   <embed type="ham/partial" src="components/footer.html" />
 </div>
